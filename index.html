@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kanish R T | Digital ID</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.18);
+}
+
+/* Header */
+
+.header {
+    background: linear-gradient(135deg, #111827, #312e81);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin: 20px auto 15px;
+    display: block;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.role {
+    margin-top: 8px;
+    opacity: 0.85;
+}
+
+/* Information */
+
+.content {
+    padding: 25px;
+}
+
+.info {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.value {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #111827;
+}
+
+/* Buttons */
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    text-decoration: none;
+    text-align: center;
+    padding: 13px;
+    border-radius: 12px;
+    background: #111827;
+    color: white;
+    font-weight: bold;
+}
+
+.button.secondary {
+    background: #eef2ff;
+    color: #312e81;
+}
+
+/* QR */
+
+.qr-section {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+#qrcode {
+    display: inline-block;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+.qr-text {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="badge">
+            DIGITAL ID CARD
+        </div>
+
+        <img 
+            src="kanish.jpg"
+            class="profile"
+            alt="Kanish R T"
+        >
+
+        <h1>Kanish R T</h1>
+
+        <div class="role">
+            Student • MCA
+        </div>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="content">
+
+        <div class="info">
+            <div class="label">Department</div>
+            <div class="value">
+                Master of Computer Application
+            </div>
+        </div>
+
+
+        <div class="info">
+            <div class="label">College / Organization</div>
+            <div class="value">
+                GTEC
+            </div>
+        </div>
+
+
+        <div class="info">
+            <div class="label">Year / Batch</div>
+            <div class="value">
+                II YEAR / 2025–2027
+            </div>
+        </div>
+
+
+        <div class="info">
+            <div class="label">Phone</div>
+            <div class="value">
+                7603863077
+            </div>
+        </div>
+
+
+        <div class="info">
+            <div class="label">Email</div>
+            <div class="value">
+                rtkanish6@gmail.com
+            </div>
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <a 
+                class="button"
+                href="tel:+917603863077">
+                📞 Call
+            </a>
+
+            <a 
+                class="button secondary"
+                href="mailto:rtkanish6@gmail.com">
+                ✉️ Email
+            </a>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a 
+                class="button secondary"
+                href="https://www.instagram.com/ft.kanishhhhh_/"
+                target="_blank">
+                Instagram
+            </a>
+
+            <a 
+                class="button"
+                href="#"
+                onclick="sharePage()">
+                Share
+            </a>
+
+        </div>
+
+
+        <!-- QR CODE -->
+
+        <div class="qr-section">
+
+            <div id="qrcode"></div>
+
+            <div class="qr-text">
+                Scan this QR code to open my Digital ID
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- QR CODE LIBRARY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
+
+<script>
+
+/*
+   QR CODE
+
+   It automatically uses the current
+   webpage URL.
+
+   Example:
+
+   https://username.github.io/kanish-id/
+*/
+
+new QRCode(document.getElementById("qrcode"), {
+
+    text: window.location.href,
+
+    width: 160,
+
+    height: 160,
+
+    colorDark: "#111827",
+
+    colorLight: "#ffffff",
+
+    correctLevel: QRCode.CorrectLevel.H
+
+});
+
+
+/* SHARE BUTTON */
+
+function sharePage() {
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "Kanish R T - Digital ID",
+            text: "My Digital ID Card",
+            url: window.location.href
+        });
+
+    } else {
+
+        navigator.clipboard.writeText(
+            window.location.href
+        );
+
+        alert("Page URL copied!");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
